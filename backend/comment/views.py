@@ -8,13 +8,6 @@ from .models import Comment
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def user_comment(request):
-    serializer = CommentSerializer(data=request.data)
-    serializer.is_valid(raise_exception=True)
-    serializer.save(user=request.user)
-    return Response(serializer.data, status=status.HTTP_201_CREATED) 
 
 @api_view (['GET'])
 @permission_classes([AllowAny])
@@ -23,3 +16,15 @@ def get_all_comments(request, video_id):
     serializer = CommentSerializer(comment)
     return Response(serializer.data)
    
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def user_comment(request):
+    print(request)
+    serializer = CommentSerializer(data=request.data)
+    print(serializer)
+    # if serializer.is_valid(raise_exception=True):
+    #     serializer.save(user=request.user)
+    #     return Response(serializer.data, status=status.HTTP_201_CREATED) 
+    return Response("check")
+    
