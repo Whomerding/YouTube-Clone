@@ -4,5 +4,6 @@ from .models import Reply
 class ReplySerializer(serializers.ModelSerializer):
     class Meta:
         model = Reply
-        fields = ['user', 'comment', 'text']
-        depth: 1
+        fields = ['user', 'comment', 'text', 'comment_id']
+        depth= 1
+    comment_id = serializers.IntegerField(write_only=True)
