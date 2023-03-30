@@ -1,0 +1,342 @@
+{
+	"info": {
+		"_postman_id": "f6c0170d-75c2-4054-8f67-e511825d6c77",
+		"name": "DRF_JWT_Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25579378"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register_User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"cust3\",\r\n    \"password\": \"cust3@cust.com\",\r\n    \"email\": \"cust3@cust.com\",\r\n    \"first_name\": \"Cust\",\r\n    \"last_name\": \"Omer 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login_User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"cust3\",\r\n    \"password\": \"cust3@cust.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh_Access",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh\": \"PASTE REFRESH TOKEN FROM LOGIN HERE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/login/refresh/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST Comment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwOTYzOTM0LCJpYXQiOjE2ODAwOTk5MzQsImp0aSI6IjBlYWUxMWY3ZjU4ZTRjM2Y4ZTBiN2RlZTYyMzIyOTJhIiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJjdXN0MyIsImZpcnN0X25hbWUiOiJDdXN0In0.q3Qx60K1E0KcuYcOYuK9UsSybZgBP-_klloAhij5sw8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"video_id\": \"0sMtoedWaf0\",\n    \"text\": \"just making sure\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/comment/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All Comments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwOTYyNDMwLCJpYXQiOjE2ODAwOTg0MzAsImp0aSI6IjU0NDFmOTkzYWY3YzRlMTFhNzhjODg5NDkyZDRiNGNiIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJjdXN0MiIsImZpcnN0X25hbWUiOiJDdXN0In0.8XSfMkCDwJyhkGgE-maB0Ua3iwiRvPFs1KXHi2uhVGk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/comment/0sMtoedWaf0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment",
+						"0sMtoedWaf0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Update Comment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwOTY2NDg4LCJpYXQiOjE2ODAxMDI0ODgsImp0aSI6Ijk0M2EyZDY1MjQ4YTRkYmVhNjQ5MjY2OGVhMWIxOGFhIiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJjdXN0MyIsImZpcnN0X25hbWUiOiJDdXN0In0.njjQzBwrOlD9fBve_MsfD86V9lYsN66CbhzLzjBwuUo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"video_id\": \"0sMtoedWaf0\",\n        \"text\": \"final check\",\n        \"likes\": 0,\n        \"dislikes\": 0\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/comment/update/5/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment",
+						"update",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Reply",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwOTY2NDg4LCJpYXQiOjE2ODAxMDI0ODgsImp0aSI6Ijk0M2EyZDY1MjQ4YTRkYmVhNjQ5MjY2OGVhMWIxOGFhIiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJjdXN0MyIsImZpcnN0X25hbWUiOiJDdXN0In0.njjQzBwrOlD9fBve_MsfD86V9lYsN66CbhzLzjBwuUo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comment_id\": 5,\n    \"text\": \"final check\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/reply/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"reply",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All Replies",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwOTY2NDg4LCJpYXQiOjE2ODAxMDI0ODgsImp0aSI6Ijk0M2EyZDY1MjQ4YTRkYmVhNjQ5MjY2OGVhMWIxOGFhIiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJjdXN0MyIsImZpcnN0X25hbWUiOiJDdXN0In0.njjQzBwrOlD9fBve_MsfD86V9lYsN66CbhzLzjBwuUo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/reply/5/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"reply",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
