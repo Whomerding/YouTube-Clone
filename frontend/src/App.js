@@ -11,6 +11,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
+import LandingPage from './pages/LandingPage/LandingPage';
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -19,6 +20,7 @@ import SearchVideos from './components/SearchVideos/SearchVideos';
 import SearchResults from './components/SearchResults/SearchResults';
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+
 
 
 function App() {
@@ -40,11 +42,10 @@ function App() {
   return (
     <div>
       <Navbar />
-      <SearchVideos setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
-      <SearchResults videos = {videos}  searchTerm = {searchTerm}/>
       <Routes>
+        <Route exact path = "/" element = {<LandingPage searchTerm={searchTerm} videos={videos} setSearchTerm={setSearchTerm} />}/>
         <Route
-          path="/"
+          path="/HomePage"
           element={
             <PrivateRoute>
               <HomePage />
