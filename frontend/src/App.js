@@ -10,6 +10,7 @@ import { DATA } from './localData'
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import DetailsPage from "./pages/DetailsPage/DetailsPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -40,7 +41,7 @@ function App() {
     <div>
       <Navbar />
       <SearchVideos setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
-      <SearchResults videos = {videos} searchTerm = {searchTerm}/>
+      <SearchResults videos = {videos}  searchTerm = {searchTerm}/>
       <Routes>
         <Route
           path="/"
@@ -52,6 +53,7 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/details-page/:videoId/" element = {<DetailsPage />} />
       </Routes>
       <Footer />
     </div>

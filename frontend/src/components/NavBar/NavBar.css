@@ -33,3 +33,7 @@ li {
   cursor: pointer;
   font-size: 2rem;
 }
+.logo-span {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color:black;
+}
