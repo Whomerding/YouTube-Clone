@@ -54,7 +54,7 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/details-page/:videoId/" element = {<DetailsPage />} />
+        <Route path="/details-page/:videoId/" element = {<DetailsPage  />} />
       </Routes>
       <Footer />
     </div>

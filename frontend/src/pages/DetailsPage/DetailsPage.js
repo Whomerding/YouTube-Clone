@@ -3,7 +3,7 @@ import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import { useParams } from 'react-router-dom';
 import CommentMapper from '../../components/CommentMapper/CommentMapper';
 import axios from 'axios';
-import PostComment from '../../components/PostComment/PostComment';
+import RelatedVideos from '../../components/RelatedVideos/RelatedVideos';
 
 
 const DetailsPage = () => {
@@ -31,6 +31,7 @@ const DetailsPage = () => {
         <VideoPlayer realVideoId={realVideoId}/>
         <h2>***Please Log in to make a comment***</h2>
         <CommentMapper realVideoId={realVideoId} comments={comments}/>
+        <RelatedVideos realVideoId={realVideoId}/>
         </div>
      );
 }

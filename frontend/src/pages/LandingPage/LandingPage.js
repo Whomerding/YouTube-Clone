@@ -10,7 +10,7 @@ function LandingPage({videos, searchTerm, setSearchTerm, getVideos}) {
     return (
       <div>
         <SearchVideos setSearchTerm={setSearchTerm} searchTerm={searchTerm} getVideos={getVideos}/>
-        <SearchResults videos = {videos}  searchTerm = {searchTerm}/>
+        <SearchResults videos = {videos}/>
       </div>
     );
   }
