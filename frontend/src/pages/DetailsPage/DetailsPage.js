@@ -29,12 +29,9 @@ const DetailsPage = () => {
     return (
         <div>
         <VideoPlayer realVideoId={realVideoId}/>
-        <PostComment realVideoId={realVideoId} getAllComments ={getAllComments}/>
+        <h2>***Please Log in to make a comment***</h2>
         <CommentMapper realVideoId={realVideoId} comments={comments}/>
         </div>
-        //create comment form component(takes realVideoId)
-        // import and rename comments to comment mapper
-                //  create a comment presenter 
      );
 }
 

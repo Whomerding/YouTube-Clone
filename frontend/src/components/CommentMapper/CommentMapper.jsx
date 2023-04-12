@@ -11,13 +11,3 @@ function CommentMapper({comments}) {
      )};
 
 export default CommentMapper;
-
-
-// const ExampleMapper = ({array}) => {
-
-//     return(
-//         <ul>
-//             {array.map( item => <ItemPresenter key ={item.id} item ={item}/>)}
-//         </ul>
-//     )
-// }

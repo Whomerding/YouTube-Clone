@@ -1,5 +1,5 @@
 import React from 'react';
-const VideoPlayer = (realVideoId) => {
+const VideoPlayer = ({realVideoId}) => {
     return (
         <div>
         <iframe title = "youtubeplayer" id="ytplayer" type="text/html" width="640" height="360"

@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { KEY } from './localKey';
 import axios from 'axios';
-import { DATA } from './localData'
+
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -16,8 +16,6 @@ import LandingPage from './pages/LandingPage/LandingPage';
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import SearchVideos from './components/SearchVideos/SearchVideos';
-import SearchResults from './components/SearchResults/SearchResults';
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
 
@@ -25,25 +23,27 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("")
-  const [videos, setVideos] = useState(DATA.items) 
-  console.log (videos)
+  const [videos, setVideos] = useState([]) 
+
   useEffect(()=> {
-    // getVideos('star trek');
+    let mounted = true;
+    if(mounted) {
+      getVideos('star trek');
+    }
+    return () => mounted = false;
   }, []);
 
 
 
   async function getVideos(searchTerm){
     const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=5`)
-    setVideos (response.items);
-    
+    setVideos (response.data.items);
   }
-
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route exact path = "/" element = {<LandingPage searchTerm={searchTerm} videos={videos} setSearchTerm={setSearchTerm} />}/>
+        <Route exact path = "/" element = {<LandingPage searchTerm={searchTerm} videos={videos} setSearchTerm={setSearchTerm} getVideos = {getVideos} />}/>
         <Route
           path="/HomePage"
           element={
