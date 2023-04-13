@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import './CommentPresenter.css'
 const CommentPresenter = (
     { comment = {
     id: number,
@@ -24,7 +24,7 @@ const CommentPresenter = (
   return (
     <li>
       <div>
-        <h3>{comment.user.first_name} {comment.user.last_name}</h3>
+        <p>{comment.user.first_name} {comment.user.last_name}</p>
         <p>{comment.text}</p>
       </div>
     </li>

@@ -1,17 +1,18 @@
 import React from 'react';
-
-export default function SearchVideos({setSearchTerm, searchTerm, getVideos }){
+import "./SearchVideos.css"
+export default function SearchVideos({setSearchTerm, searchTerm, getVideos}){
     const handleClick = (event) => {
         event.preventDefault();
-        setSearchTerm(event.target.value);
-        getVideos(searchTerm)
+        getVideos (searchTerm)
       };
       
     return ( 
-        <div>
-            <form> 
-            <input placeholder = "Search Videos" type="text"/>
-            <button onClick ={handleClick}>Search</button>
+        <div className="search-bar">
+            <form className='search-form' onSubmit={handleClick}> 
+            <div>
+            <input placeholder = "Search Videos" type="text" value = {searchTerm} onChange = {event => setSearchTerm(event.target.value)} />
+            <button type='submit' className="button-search">Search</button>
+            </div>
             </form>
         </div>
      );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchResults from '../SearchResults/SearchResults';
 import { KEY } from '../../localKey';
-
+import './RelatedVideos.css'
 function RelatedVideos({realVideoId}) {
     const [relatedVideos, setRelatedVideos] = useState([]) 
     useEffect(()=> {
@@ -19,7 +19,9 @@ function RelatedVideos({realVideoId}) {
         setRelatedVideos (response.data.items);
       }
     return ( 
+        <div className='related-videos'>
         <SearchResults videos = {relatedVideos}/>
+        </div>
      );
 }
 

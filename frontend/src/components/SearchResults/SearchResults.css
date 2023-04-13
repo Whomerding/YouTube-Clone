@@ -1,0 +1,27 @@
+.search-output {
+    display: flex;
+}
+.grid-container {
+    display: grid;
+    justify-content: end;
+    grid-template-areas:
+        "t t t"
+        "m m m"
+        "b b b";
+    grid-row-gap: 2REM;
+    grid-column-gap: 2REM;
+    margin-top: 5REM;
+  }
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .video-title {
+    display: flex;
+    height: 5REM;
+    padding: .2REM;
+    flex-wrap: wrap;
+    align-items: center;
+  }

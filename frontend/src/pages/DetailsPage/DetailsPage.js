@@ -4,17 +4,19 @@ import { useParams } from 'react-router-dom';
 import CommentMapper from '../../components/CommentMapper/CommentMapper';
 import axios from 'axios';
 import RelatedVideos from '../../components/RelatedVideos/RelatedVideos';
+import './DetailsPage.css'
+import PostComment from '../../components/PostComment/PostComment';
+import useAuth from "../../hooks/useAuth";
 
-
-const DetailsPage = () => {
-    // const {videoId} = useParams();
+const DetailsPage = ({video}) => {
+    const [user, token] = useAuth (); 
+    const {realVideoId, title, description} = useParams();
     const [comments, setComments] = useState([])
-    const [realVideoId, setrealVideoId] = useState('0sMtoedWaf0')
     
      useEffect(()=>{
         getAllComments();
     }, []);
-
+    console.log (video)
     async function getAllComments(){
         try {
             const response = await axios.get(`http://127.0.0.1:8000/api/comment/${realVideoId}/`);
@@ -28,10 +30,17 @@ const DetailsPage = () => {
 
     return (
         <div>
-        <VideoPlayer realVideoId={realVideoId}/>
-        <h2>***Please Log in to make a comment***</h2>
+            <div className='video-player'>
+            <h1>{title}</h1>    
+            <VideoPlayer realVideoId={realVideoId}/>
+            <p>{description}</p>
+            
+        {token? <PostComment getAllComments={getAllComments} realVideoId = {realVideoId}/>:<h2>***Please Log in to make a comment***</h2> }
+        </div>
         <CommentMapper realVideoId={realVideoId} comments={comments}/>
-        <RelatedVideos realVideoId={realVideoId}/>
+            <div className = "related-videos">
+            <RelatedVideos realVideoId={realVideoId}/>
+            </div>
         </div>
      );
 }

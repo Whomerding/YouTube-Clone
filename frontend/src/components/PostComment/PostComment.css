@@ -1,0 +1,11 @@
+.comment-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.comment-button {
+    padding: .09REM;
+    padding-left: 2REM;
+    padding-right: 5REM;
+    margin: 0 1REM;
+}

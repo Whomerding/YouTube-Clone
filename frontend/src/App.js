@@ -7,7 +7,6 @@ import axios from 'axios';
 
 
 // Pages Imports
-import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
@@ -20,15 +19,14 @@ import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./utils/PrivateRoute";
 
 
-
 function App() {
   const [searchTerm, setSearchTerm] = useState("")
   const [videos, setVideos] = useState([]) 
-
+  const [video, setVideo] = useState([])
   useEffect(()=> {
     let mounted = true;
     if(mounted) {
-      getVideos('star trek');
+      getVideos('python django explained in 8 minutes');
     }
     return () => mounted = false;
   }, []);
@@ -36,25 +34,18 @@ function App() {
 
 
   async function getVideos(searchTerm){
-    const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=5`)
+    const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=9`)
     setVideos (response.data.items);
   }
+  console.log(videos)
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route exact path = "/" element = {<LandingPage searchTerm={searchTerm} videos={videos} setSearchTerm={setSearchTerm} getVideos = {getVideos} />}/>
-        <Route
-          path="/HomePage"
-          element={
-            <PrivateRoute>
-              <HomePage />
-            </PrivateRoute>
-          }
-        />
+        <Route exact path = "/" element = {<LandingPage searchTerm={searchTerm} videos={videos} setVideo = {setVideo} setSearchTerm={setSearchTerm} getVideos = {getVideos} />}/>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/details-page/:videoId/" element = {<DetailsPage  />} />
+        <Route path="/details-page/:title/:description/:realVideoId/" element = {<DetailsPage />} />
       </Routes>
       <Footer />
     </div>
