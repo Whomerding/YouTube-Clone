@@ -18,7 +18,7 @@ def user_reply(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def get_all_replies(request, comment_id):
     replies=Reply.objects.all()
     if comment_id:

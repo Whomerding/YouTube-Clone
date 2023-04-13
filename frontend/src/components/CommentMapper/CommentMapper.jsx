@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-
+import React from 'react';
 import CommentPresenter from '../CommentPresenter/CommentPresenter';
 import './CommentMapper.css'
 function CommentMapper({comments}) {
-   
+
+    
+
     return (
 
         <ul className='comment-list'>

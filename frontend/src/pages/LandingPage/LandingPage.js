@@ -5,13 +5,13 @@ import SearchVideos from '../../components/SearchVideos/SearchVideos';
 
 
 
-function LandingPage({videos, searchTerm, setSearchTerm, getVideos}) {
+function LandingPage({videos, searchTerm, setSearchTerm, getVideos, setVideo}) {
 
     return (
       <div>
         <SearchVideos setSearchTerm={setSearchTerm} searchTerm={searchTerm} getVideos={getVideos}/>
         <div>
-          <SearchResults videos = {videos}/>
+          <SearchResults videos = {videos} setVideo = {setVideo}/>
         </div>
       </div>
     );

@@ -3,7 +3,7 @@ import axios from 'axios';
 import SearchResults from '../SearchResults/SearchResults';
 import { KEY } from '../../localKey';
 import './RelatedVideos.css'
-function RelatedVideos({realVideoId}) {
+function RelatedVideos({realVideoId} ) {
     const [relatedVideos, setRelatedVideos] = useState([]) 
     useEffect(()=> {
         let mounted = true;

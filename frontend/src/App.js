@@ -23,6 +23,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("")
   const [videos, setVideos] = useState([]) 
   const [video, setVideo] = useState([])
+  
   useEffect(()=> {
     let mounted = true;
     if(mounted) {
@@ -42,10 +43,10 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route exact path = "/" element = {<LandingPage searchTerm={searchTerm} videos={videos} setVideo = {setVideo} setSearchTerm={setSearchTerm} getVideos = {getVideos} />}/>
+        <Route exact path = "/" element = {<LandingPage searchTerm={searchTerm} videos={videos} setVideo = {setVideo} setSearchTerm={setSearchTerm} getVideos = {getVideos}/>}/>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/details-page/:title/:description/:realVideoId/" element = {<DetailsPage />} />
+        <Route path="/details-page/:title/:realVideoId" element = {<DetailsPage />} />
       </Routes>
       <Footer />
     </div>
