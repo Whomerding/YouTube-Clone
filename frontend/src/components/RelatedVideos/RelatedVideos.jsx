@@ -18,6 +18,7 @@ function RelatedVideos({realVideoId}) {
         const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${realVideoId}&key=${KEY}&type=video&part=snippet`)
         setRelatedVideos (response.data.items);
       }
+      console.log (relatedVideos)
     return ( 
         <div className='related-videos'>
         <SearchResults videos = {relatedVideos}/>

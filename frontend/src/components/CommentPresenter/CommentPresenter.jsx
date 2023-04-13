@@ -23,9 +23,9 @@ const CommentPresenter = (
 ) => {
   return (
     <li>
-      <div>
-        <p>{comment.user.first_name} {comment.user.last_name}</p>
-        <p>{comment.text}</p>
+      <div style={{textAlign: 'left'}}>
+        <p style={{fontWeight: 'bold', fontStyle: 'italic', fontSize: ',medium'}}>{comment.user.first_name} {comment.user.last_name}</p>
+        <p style={{fontSize: 'small'}}>{comment.text}</p>
       </div>
     </li>
   );

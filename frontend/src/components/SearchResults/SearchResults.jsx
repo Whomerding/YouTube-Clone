@@ -6,9 +6,9 @@ const SearchResults = ({videos}) => {
 
  
     return ( 
-        <div className='grid-container'>
+        <div style={{display: 'flex', flexWrap: 'wrap'}}>
             {videos.map((el) => (
-                <div key = {el.id.videoId} className="grid-item">
+                <div key = {el.id.videoId} style={{flex: 1, textAlign: "center"}}>
                     <h3 className='video-title'>{el.snippet.title}</h3>
                     <div>
                     <Link to={`/details-page/${el.snippet.title}/${el.snippet.description}/${el.id.videoId}`}><img  src = {el.snippet.thumbnails.medium.url} alt = "thumbnail of search video"/></Link>

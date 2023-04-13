@@ -29,16 +29,16 @@ const DetailsPage = ({video}) => {
           }
 
     return (
-        <div>
-            <div className='video-player'>
+        <div className='details-page'>
+            <div className='a' style={{textAlign: 'center', paddingRight: "2REM"}}>
             <h1>{title}</h1>    
             <VideoPlayer realVideoId={realVideoId}/>
             <p>{description}</p>
-            
         {token? <PostComment getAllComments={getAllComments} realVideoId = {realVideoId}/>:<h2>***Please Log in to make a comment***</h2> }
-        </div>
         <CommentMapper realVideoId={realVideoId} comments={comments}/>
-            <div className = "related-videos">
+            </div>
+        
+            <div className = "b">
             <RelatedVideos realVideoId={realVideoId}/>
             </div>
         </div>
