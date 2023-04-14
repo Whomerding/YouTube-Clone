@@ -1,15 +1,15 @@
-// import React from 'react';
-// import ReplyPresenter from '../ReplyPresenter/ReplyPresenter';
+import React from 'react';
+import ReplyPresenter from '../ReplyPresenter/ReplyPresenter';
 
 
-// function ReplyMapper({replies}) {
+function ReplyMapper({replies}) {
    
-//     return (
+    return (
 
-//         <ul className='comment-list'>
-//             {replies.map(el=> <ReplyPresenter key={el.id} reply={el}/>)}
-//         </ul>
+        <ul className='reply-list'>
+            {replies.map(el=> <ReplyPresenter key={el.id} reply={el}/>)}
+        </ul>
 
-//      )};
+     )};
 
-// export default ReplyMapper;
+export default ReplyMapper;
