@@ -168,7 +168,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwOTYyNDMwLCJpYXQiOjE2ODAwOTg0MzAsImp0aSI6IjU0NDFmOTkzYWY3YzRlMTFhNzhjODg5NDkyZDRiNGNiIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJjdXN0MiIsImZpcnN0X25hbWUiOiJDdXN0In0.8XSfMkCDwJyhkGgE-maB0Ua3iwiRvPFs1KXHi2uhVGk",
+							"value": "",
 							"type": "string"
 						}
 					]
@@ -198,6 +198,49 @@
 						"api",
 						"comment",
 						"0sMtoedWaf0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Reply",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwOTY2NDg4LCJpYXQiOjE2ODAxMDI0ODgsImp0aSI6Ijk0M2EyZDY1MjQ4YTRkYmVhNjQ5MjY2OGVhMWIxOGFhIiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJjdXN0MyIsImZpcnN0X25hbWUiOiJDdXN0In0.njjQzBwrOlD9fBve_MsfD86V9lYsN66CbhzLzjBwuUo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comment_id\": 5,\n    \"text\": \"final check\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/reply/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"reply",
+						""
 					]
 				}
 			},
@@ -242,49 +285,6 @@
 						"comment",
 						"update",
 						"5",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST Reply",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgwOTY2NDg4LCJpYXQiOjE2ODAxMDI0ODgsImp0aSI6Ijk0M2EyZDY1MjQ4YTRkYmVhNjQ5MjY2OGVhMWIxOGFhIiwidXNlcl9pZCI6NSwidXNlcm5hbWUiOiJjdXN0MyIsImZpcnN0X25hbWUiOiJDdXN0In0.njjQzBwrOlD9fBve_MsfD86V9lYsN66CbhzLzjBwuUo",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"comment_id\": 5,\n    \"text\": \"final check\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://127.0.0.1:8000/api/reply/",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"reply",
 						""
 					]
 				}
