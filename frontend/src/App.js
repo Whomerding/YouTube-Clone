@@ -22,7 +22,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 function App() {
   const [searchTerm, setSearchTerm] = useState("")
   const [videos, setVideos] = useState([]) 
-  const [video, setVideo] = useState([])
+  
   
   useEffect(()=> {
     let mounted = true;
@@ -38,15 +38,14 @@ function App() {
     const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=9`)
     setVideos (response.data.items);
   }
-  console.log(videos)
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route exact path = "/" element = {<LandingPage searchTerm={searchTerm} videos={videos} setVideo = {setVideo} setSearchTerm={setSearchTerm} getVideos = {getVideos}/>}/>
+        <Route exact path = "/" element = {<LandingPage searchTerm={searchTerm} videos={videos} setSearchTerm={setSearchTerm} getVideos = {getVideos}/>}/>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/details-page/:title/:realVideoId" element = {<DetailsPage />} />
+        <Route path="/details-page/:realVideoId" element = {<DetailsPage />} />
       </Routes>
       <Footer />
     </div>
