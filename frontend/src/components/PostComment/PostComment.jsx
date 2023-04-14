@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
-import { useParams } from "react-router-dom";
 import './PostComment.css'
 
 const PostComment = ({ getAllComments, realVideoId }) => {
