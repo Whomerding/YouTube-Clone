@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ReplyMapper from "../ReplyMapper/ReplyMapper";
 import PostReply from "../PostReply/PostReply";
+import useAuth from "../../hooks/useAuth";
 
 const CommentPresenter = ({ comment }) => {
   const [replies, setReplies] = useState([]);
+  const [user, token] = useAuth();
 
   useEffect(() => {
     getAllReplies();
@@ -37,9 +39,9 @@ const CommentPresenter = ({ comment }) => {
         <ul>
         <h3 style= {{fontWeight: "bold", fontSize: "medium"}}>Replies</h3>
         <ReplyMapper replies = {replies} />
-        <PostReply
+        {token ? (<PostReply
             getAllReplies={getAllReplies}
-            commentId={comment.id}/>
+            commentId={comment.id}/>) : (<p>**Please login to reply**</p>)}
         </ul>
       </div>
     </li>
