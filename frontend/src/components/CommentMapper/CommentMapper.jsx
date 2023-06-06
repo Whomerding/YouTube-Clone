@@ -3,7 +3,7 @@ import CommentPresenter from '../CommentPresenter/CommentPresenter';
 
 import './CommentMapper.css'
 
-function CommentMapper({comments, getAllReplies, realVideoId}) {
+function CommentMapper({comments}) {
 
     
 

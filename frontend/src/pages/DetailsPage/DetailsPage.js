@@ -7,7 +7,6 @@ import RelatedVideos from "../../components/RelatedVideos/RelatedVideos";
 import "./DetailsPage.css";
 import PostComment from "../../components/PostComment/PostComment";
 import useAuth from "../../hooks/useAuth";
-import { useLocation } from "react-router-dom";
 import { KEY } from "../../localKey";
 
 const DetailsPage = () => {
